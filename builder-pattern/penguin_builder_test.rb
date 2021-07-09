@@ -1,5 +1,5 @@
 require "test/unit"
-require_relative "penguin"
+require_relative "penguin_builder"
 
 class PenguinTest < Test::Unit::TestCase
   def test_build_penguin_specifying_beak_colour

@@ -1,4 +1,27 @@
+module PenguinValidations
+  VALID_BEAK_COLOURS = [
+    "orange",
+    "red",
+    "green",
+    "yellow"
+  ]
+
+  def validate_beak_colour(colour)
+    raise StandardError unless VALID_BEAK_COLOURS.include?(colour)
+
+    colour
+  end
+
+  def validate_height(height)
+    raise StandardError unless height.kind_of? Float
+
+    height
+  end
+end
+
 class PenguinBuilder
+  include PenguinValidations
+
   def self.build
     builder = new
     yield(builder)
@@ -17,27 +40,6 @@ class PenguinBuilder
 
   def set_height(height)
     @penguin.height = validate_height(height)
-  end
-
-  private
-
-  VALID_BEAK_COLOURS = [
-    "orange",
-    "red",
-    "green",
-    "yellow"
-  ]
-
-  def validate_beak_colour(colour)
-    raise StandardError unless VALID_BEAK_COLOURS.include?(colour)
-
-    colour
-  end
-
-  def validate_height(height)
-    raise StandardError unless height.kind_of? Float
-
-    height
   end
 end
 

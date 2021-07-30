@@ -1,4 +1,4 @@
-## Getting Started
+## Running tests
 
 Run the following:
 
